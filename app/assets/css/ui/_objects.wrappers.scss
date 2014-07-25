@@ -1,0 +1,11 @@
+.wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 $inuit-base-spacing-unit--small;
+  padding-left:  $inuit-base-spacing-unit--small;
+
+  @include media-query(lap-and-up) {
+    padding: 0 $inuit-base-spacing-unit;
+  }
+
+}

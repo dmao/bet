@@ -1,0 +1,15 @@
+$inuit-list-ui-border-width:    1px !default;
+$inuit-list-ui-border-style:    solid !default;
+$inuit-list-ui-border-color:    #ccc !default;
+
+
+.list-ui {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.list-ui__item {
+  border-bottom: $inuit-list-ui-border-width $inuit-list-ui-border-style $inuit-list-ui-border-color;
+  padding: $inuit-base-spacing-unit--small;
+  margin-bottom: $inuit-base-spacing-unit--small;
+}

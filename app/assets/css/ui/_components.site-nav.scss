@@ -1,0 +1,24 @@
+/*.site-nav {
+  __link {
+    text-transform: uppercase;
+  }
+}*/
+.site-nav {
+  margin-bottom: $inuit-base-spacing-unit--small;
+  @include media-query(lap-and-up) {
+    float: right;
+    margin-top: $inuit-base-spacing-unit;
+  }
+}
+.site-nav__item {
+  text-transform: uppercase;
+  & + li {
+    margin-left: $inuit-base-spacing-unit--small;
+  }
+}
+.site-nav__link {
+  &:hover,
+  &:active {
+    text-decoration: underline;
+  }
+}
