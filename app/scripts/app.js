@@ -31,6 +31,14 @@ angular
         templateUrl: 'views/address-book.html',
         controller: 'AboutCtrl'
       })
+      .when('/new', {
+        templateUrl: 'views/address-Book-new.html',
+        controller: 'AddressBookCtrl'
+      })
+      .when('/edit', {
+        templateUrl: 'views/address-Book-edit.html',
+        controller: 'AddressBookCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

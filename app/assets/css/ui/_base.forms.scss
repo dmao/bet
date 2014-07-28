@@ -1,3 +1,284 @@
+
+/*------------------------------------*\
+    $FORMS
+\*------------------------------------*/
+/**
+ *
+ * Demo: jsfiddle.net/inuitcss/MhHHU
+ *
+ */
+fieldset{
+  padding: $inuit-base-spacing-unit;
+}
+
+
+/**
+ * Text inputs
+ *
+ * Instead of a `[type]` selector for each kind of form input, we just use a
+ * class to target any/every one, e.g.:
+   <input type=text class=text-input>
+   <input type=email class=text-input>
+   <input type=password class=text-input>
+ *
+ */
+.text-input,
+textarea{
+  /**
+   * Style these via your theme stylesheet.
+   */
+}
+
+
+/**
+ * Group sets of form fields in a list, e.g.:
+ *
+   <ul class=form-fields>
+       <li>
+           <label />
+           <input />
+       </li>
+       <li>
+           <label />
+           <select />
+       </li>
+       <li>
+           <label />
+           <input />
+       </li>
+   </ul>
+ *
+ */
+.form-fields{
+  list-style:none;
+  margin:0 0 $inuit-base-spacing-unit 0;
+}
+.form-fields > li{
+  margin-bottom: $inuit-base-spacing-unit;
+}
+.form-fields > li:last-child{
+  margin-bottom:0;
+}
+
+
+/**
+ * Labels
+ *
+ * Define a `.label` class as well as a `label` element. This means we can apply
+ * label-like styling to meta-labels for groups of options where a `label`
+ * element is not suitable, e.g.:
+ *
+   <li>
+       <span class=label>Select an option below:</span>
+       <ul class="multi-list  four-cols">
+           <li>
+               <input /> <label />
+           </li>
+           <li>
+               <input /> <label />
+           </li>
+           <li>
+               <input /> <label />
+           </li>
+           <li>
+               <input /> <label />
+           </li>
+       </ul>
+   </li>
+ *
+ */
+label,
+.label{
+  display:block;
+}
+/**
+ * Extra help text in `label`s, e.g.:
+ *
+   <label>Card number <small class=additional>No spaces</small></label>
+ *
+ */
+.additional{
+  display:block;
+  font-weight:normal;
+}
+
+
+/*
+ * Groups of checkboxes and radios, e.g.:
+ *
+   <li>
+       <ul class=check-list>
+           <li>
+               <input /> <label />
+           </li>
+           <li>
+               <input /> <label />
+           </li>
+       </ul>
+   </li>
+ *
+ */
+.check-list{
+  list-style:none;
+  margin:0;
+}
+/*
+ * Labels in check-lists
+ */
+.check-label,
+.check-list label,
+.check-list .label{
+  display:inline-block;
+}
+
+
+/**
+ * Spoken forms are for forms that read like spoken word, e.g.:
+ *
+   <li class=spoken-form>
+       Hello, my <label for=spoken-name>name</label> is
+       <input type=text class=text-input id=spoken-name>. My home
+       <label for=country>country</label> is
+       <select id=country>
+           <option>UK</option>
+           <option>US</option>
+           <option>Other</option>
+       </select>
+   </li>
+ *
+ */
+.spoken-form label{
+  display:inline-block;
+  font:inherit;
+}
+
+
+/**
+ * Extra help text displayed after a field when that field is in focus, e.g.:
+ *
+   <label for=email>Email:</label>
+   <input type=email class=text-input id=email>
+   <small class=extra-help>.edu emails only</small>
+ *
+ * We leave the help text in the document flow and merely set it to
+ * `visibility:hidden;`. This means that it won’t interfere with anything once
+ * it reappears.
+ *
+ */
+/*small*/.extra-help{
+           display:inline-block;
+           visibility:hidden;
+         }
+.text-input:active + .extra-help,
+.text-input:focus + .extra-help{
+  visibility:visible;
+}
+
+// OWN STYLES
+legend {
+  @extend h1;
+}
+
+fieldset{
+  padding:0;
+  border: none;
+  margin: 0 0 $inuit-base-spacing-unit 0;
+}
+
+.text-input,
+textarea {
+  background-color: #F2F2F2;
+  box-shadow: inset 0 1px 0 rgba(0,0,0,0.1);
+  border: 1px solid $color-gray;
+  border-color: rgba(0,0,0,0.2);
+  border-radius: 4px;
+  padding: 0.5em;
+  vertical-align: middle;
+  width: 100%;
+  &:focus {
+    background-color: #fff;
+    box-shadow: inset 0 1px 0 rgba(17,34,187,0.1);
+    border: 1px solid  $color-green;
+    border-color: rgba( $color-green,0.5);
+  }
+}
+/*select.text-input {
+  background: $grey-light url("../img/ico/black-triangle.gif") no-repeat 95% 50%;
+  background-size: 1em;
+  color: #444;
+  text-shadow: 0 1px 0 #fff;
+  box-shadow: inset 0 -1px 0 rgba(0,0,0,0.1);
+  margin-right: 0.5em;
+  border: 1px solid #ccc;
+  border-radius: 0.25em;
+  padding: 0.5em 0.75em;
+  display: inline-block;
+  position: relative;
+  -webkit-appearance: button;
+  appearance: normal;
+  width: 100%;
+}*/
+
+/*.additional {
+  color:  $grey-dark;
+}
+*/
+abbr[title="Required"] {
+  color: #a00;
+  font-size: 1.25em;
+  font-weight: 400;
+  border: 0;
+}
+
+.form--actions {
+  padding: 0 0 $inuit-base-spacing-unit 0;
+}
+
+
+
+.input {
+  background: #262626;
+  float: left;
+  clear: both;
+  height: 28px;
+  width: 84%;
+  width: calc(100% - 34px);
+  border-radius: 4px 0 0 4px;
+}
+.input span {
+  position: absolute;
+  padding: 0 4px;
+  display: inline-block;
+  height: 28px;
+  line-height: 28px;
+  color: #999;
+  font-size: 12px;
+  font-size: 0.85714rem;
+  border-radius: 4px 0 0 4px;
+}
+
+.input input {
+  position: relative;
+  margin: 0;
+  padding: 0 4px;
+  background: 0 0;
+  font: inherit;
+  border: 0;
+  border-radius: 4px 0 0 4px;
+  color: #999;
+  height: 28px;
+  line-height: 28px;
+  width: 100%;
+  font-size: 12px;
+  font-size: 0.85714rem;
+}
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  .input input {
+    padding: 4px;
+  }
+}
+
+
 .search-form {
   border: 1px solid $color-gray-ui;
   border-radius: 9px;
