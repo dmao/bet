@@ -1,33 +1,33 @@
-<form action="">
+<form action="" name="contactForm">
     <legend>Add a new user</legend>
     <ul class=form-fields>
         <li>
             <label for="lastname">Last name <abbr title="Required">*</abbr></label>
-            <input type="text" id="lastname" name="lastname" class="text-input">
+            <input type="text" id="lastname" name="lastname" class="text-input" data-ng-model="newContact.lastName">
         </li>
         <li>
             <label for="firstname">First name <abbr title="Required">*</abbr></label>
-            <input type="text" id="firstname" name="firstname" class="text-input" >
+            <input type="text" id="firstname" name="firstname" class="text-input" data-ng-model="newContact.firstName">
         </li>
         <li>
             <label for="email">Email <abbr title="Required">*</abbr></label>
-            <input type="email" id="email" name="email" class="text-input" >
+            <input type="email" id="email" name="email" class="text-input" data-ng-model="newContact.email">
         </li>
         <li>
             <label for="address">Address <abbr title="Required">*</abbr></label>
-            <input type="text" id="address" name="address" class="text-input" >
+            <input type="text" id="address" name="address" class="text-input" data-ng-model="newContact.address">
         </li>
         <li>
             <label for="city">City <abbr title="Required">*</abbr></label>
-            <input type="text" id="city" name="city" class="text-input" >
+            <input type="text" id="city" name="city" class="text-input" data-ng-model="newContact.city">
         </li>
         <li>
             <label for="country">Country <abbr title="Required">*</abbr></label>
-            <input type="text" id="country" name="country" class="text-input" >
+            <input type="text" id="country" name="country" class="text-input" data-ng-model="newContact.country">
         </li>
 
     </ul>
     <div class="form--actions">
-        <button type="submit" class="btn btn--small">Add</button>
+        <button type="submit" class="btn btn--small" data-ng-click="addContact()">Add</button>
     </div>
 </form>

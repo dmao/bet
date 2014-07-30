@@ -34,7 +34,7 @@
   transition: all 0.2s;
   &:hover,
   &:active,
-  &.contact-list__item--active {
+  &.active {
     background: $color-gray-ui;
     border-radius: 4px;
   }

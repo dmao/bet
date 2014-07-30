@@ -4,7 +4,7 @@
             <div class="layout">
                 <div class="layout__item desk-three-quarters">
                     <form action="" class="contact-list__form">
-                        <input type="search" class="search-form search-form__full" placeholder="filter contact" >
+                        <input type="search" class="search-form search-form__full" placeholder="filter contact" ng-model="searchText">
                     </form>
                 </div><!--
                 --><div class="layout__item desk-one-quarter">
@@ -13,7 +13,24 @@
             </div>
         </div>
         <form action="">
-            <h2 class="contact-list__letter">A</h2>
+            <ul class="list-ui">
+                <li ng-repeat='contact in contacts | orderBy:"lastName" | filter:searchText' class="list-ui__item clearfix contact-list__item" ng-class="{active : $first}">
+                    <a href="#{{contact.id}}" class="contact-list__link">
+                        <div class="media media--small">
+                            <img src="{{contact.smallImg}}" class="img-rounded media__img"
+                                 alt="{{contact.firstName}}" height="75" width="75">
+                            <div class="media__body">
+                                <p>
+                                    <span class="upper">{{contact.firstName}} <strong>{{contact.lastName}}</strong></span> <br>
+                                    {{contact.title}} <br>
+                                    {{contact.email}}
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+<!--            <h2 class="contact-list__letter">A</h2>
             <ul class="list-ui">
                 <li class="list-ui__item clearfix contact-list__item contact-list__item--active">
                     <input type="checkbox" class="contact-list__checkbox">
@@ -105,28 +122,32 @@
                         </div>
                     </a>
                 </li>
-            </ul>
+            </ul>-->
 
         </form>
     </div>
-    <div class="contact-detail">
+    <div class="contact-detail" ng-repeat='contact in contacts | orderBy:"lastName" | limitTo:1'>
         <div class="box-border media media--rev">
-            <img src="http://lorempixel.com/125/125/people/1/" class="img-rounded media__img" alt="Jean Renoir">
+            <img src="{{contact.largeImg}}" class="img-rounded media__img" alt="{{contact.firstName}} {{contact.lastName}}">
             <div class="media__body">
-                <h1 class="mb0">Albert Andrée</h1>
-                <p class="mb-">Head of office</p>
+                <h1 class="mb0">{{contact.firstName}} {{contact.lastName}}</h1>
+                <p class="mb-">{{contact.title}}</p>
                 <button href="#" class="btn btn--small"><i class="icon-envelope2"></i> Mail</button>
-                <a href="#/edit" class="btn btn--small"><i class="icon-pencil"></i> Edit</a>
-                <button href="#" class="btn btn--small"><i class="icon-remove"></i> Delete</button>
+                <a href="#/edit/{{contact.id}}" class="btn btn--small" data-ng-click="editContact({{contact.id}})">
+                    <i class="icon-pencil"></i> Edit
+                </a>
+                <button href="#" class="btn btn--small" data-ng-click="deleteContact({{contact.id}})" >
+                    <i class="icon-remove"></i> Delete
+                </button>
             </div>
         </div>
-        <p><strong>Email:</strong> <br> albert.andre@test.com</p>
-        <p><strong>Phone:</strong> <br> +44 567 907 679</p>
+        <p><strong>Email:</strong> <br> {{contact.email}}</p>
+        <p><strong>Phone:</strong> <br> {{contact.phone}}</p>
         <address>
             <strong>Address:</strong> <br>
-            12 King Street <br>
-            K2 London <br>
-            U.K.
+            {{contact.address}} <br>
+            {{contact.zipCode}} {{contact.city}} <br>
+            {{contact.country}}
         </address>
     </div>
 </div>

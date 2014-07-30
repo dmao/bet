@@ -29,13 +29,13 @@ angular
       })
       .when('/address-book', {
         templateUrl: 'views/address-book.html',
-        controller: 'AboutCtrl'
+        controller: 'AddressBookCtrl'
       })
       .when('/new', {
         templateUrl: 'views/address-Book-new.html',
         controller: 'AddressBookCtrl'
       })
-      .when('/edit', {
+      .when('/edit:id', {
         templateUrl: 'views/address-Book-edit.html',
         controller: 'AddressBookCtrl'
       })
